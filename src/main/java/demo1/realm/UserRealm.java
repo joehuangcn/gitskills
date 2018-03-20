@@ -27,7 +27,7 @@ public class UserRealm extends AuthorizingRealm {
     @Override
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authenticationToken) throws AuthenticationException {
         String username=(String) authenticationToken.getPrincipal();
-        String pwd=(String) authenticationToken.getCredentials();
+        String pwd=new String( (char[]) authenticationToken.getCredentials());
             User user= userRepo.findByUsername(username);
             if (user==null){
                 throw  new UnknownAccountException();
