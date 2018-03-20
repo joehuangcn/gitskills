@@ -34,7 +34,7 @@ public class LogAspect {
         System.out.println("  before -----  "+action.desc());
     }
 
-    @After("myPointCut")
+    @After("myPointCut()")
     public void after(JoinPoint joinPoint){
         MethodSignature signature = (MethodSignature) joinPoint.getSignature();
         Method method = signature.getMethod();
